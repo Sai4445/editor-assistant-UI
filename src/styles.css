@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import  "~primeicons/primeicons.css";
+@import  "~primeng/resources/themes/saga-blue/theme.css";
+@import  "~primeng/resources/primeng.min.css";
+
+
+body {
+    padding: 0;
+    margin: 5px;
+    font-size: 12px;
+    background-color: white;
+    background-image: url('./assets/bgpic1.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+:host ::ng-deep .mat-form-field {
+    display: block;
+}
+
+:host ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color: black;
+}
+
+::ng-deep .cdk-overlay-container mat-datepicker-content{
+    z-index:2000;
+  }

@@ -1,0 +1,22 @@
+.commentStyle {
+    display: flex;
+    width: 60%;
+}
+
+.fieldStyle {
+    display: flex;
+    width: 28%;
+}
+
+.lableStyle {
+    color: black;
+    width: 100px;
+}
+
+.inputStyle {
+    width: 200px;
+}
+
+.fieldStyle {
+    padding-bottom: 10px;
+}

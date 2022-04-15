@@ -1,0 +1,21 @@
+.container {
+    border-bottom: 1px solid black;
+}
+
+.navigation {
+    margin: 10px;
+}
+
+.logoutStyle {
+    align-self: center;
+    margin-left: auto;
+}
+
+.logoutStyle:hover {
+    cursor: pointer;
+}
+
+p:hover {
+    cursor: pointer;
+    color: blue;
+}

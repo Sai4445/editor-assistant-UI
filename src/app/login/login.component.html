@@ -1,0 +1,36 @@
+<div class="loginContainer">
+    <div class="logo">
+        <img src="../assets/Logo.jpeg" alt="Forest" width="600" height="510">
+    </div>
+    <div class="logform">
+        <form [formGroup]="loginFG" (submit)="onClickLogin()">
+            <div class="error" *ngIf="loginError">
+                <span>{{errorMessage}}</span>
+            </div>
+            <mat-form-field class="col-5 mt-3 mx-auto fieldStyle">
+                <mat-label class="labelStyle">Email</mat-label>
+                <input class="labelStyle" type="text" matInput formControlName="email" />
+                <mat-error *ngIf="loginFG.get('email')?.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-5 mt-3 mx-auto fieldStyle">
+                <mat-label class="labelStyle">Password</mat-label>
+                <input class="labelStyle" type="password" matInput formControlName="password" />
+                <mat-error *ngIf="loginFG.get('password')?.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="loginButton">
+                <button [disabled]="!loginFG.valid" mat-flat-button color="primary" type="submit"
+                    class="col-3 mt-2 mb-3"> Login </button>
+            </div>
+        </form>
+        <div class="regLink">Didn't have an account?
+            <a routerLink="/register"> Sign up</a>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+    </ngx-spinner> 

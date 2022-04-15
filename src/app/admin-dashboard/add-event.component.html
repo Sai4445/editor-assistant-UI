@@ -1,0 +1,80 @@
+<p-dialog header="Add Event" [(visible)]="showAddEvent" [modal]="true" appendTo="body"
+  [style]="{'width':'1000px', 'height':'750px'}">
+  <!-- <form [formGroup]="eventForm" (submit)="addEvent()">
+    <div class="addEventContainer">
+      <div class="fieldStyle">
+        <div class="lableStyle"><span>Title</span></div>
+        <div class="inputStyle"><input [disabled]="selectedTab !== 'Events'" type="text" pInputText
+            formControlName="eventName" /></div>
+      </div>
+      <div class="fieldStyle">
+        <div class="lableStyle"><span>Description</span></div>
+        <div class="inputStyle"><input [disabled]="selectedTab !== 'Events'" type="text" pInputText
+            formControlName="description" /></div>
+      </div>
+      <div class="fieldStyle">
+        <div class="lableStyle"><span>Start Date</span></div>
+        <div class="inputStyle">
+          <p-calendar [disabled]="selectedTab !== 'Events'" [showIcon]="true" formControlName="startDateTime"></p-calendar>
+        </div>
+      </div>
+      <div class="fieldStyle">
+        <div class="lableStyle"><span>End Date</span></div>
+        <div class="inputStyle">
+          <p-calendar [disabled]="selectedTab !== 'Events'" [showIcon]="true" formControlName="endDateTime"></p-calendar>
+        </div>
+      </div>
+    </div>
+    </form> -->
+    <form [formGroup]="eventForm" (submit)="addEvent()">
+      <div class="addEventContainer">
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Title</span></div>
+          <div class="inputStyle"><input type="text" pInputText
+              formControlName="eventName" /></div>
+        </div>
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Description</span></div>
+          <div class="inputStyle"><input type="text" pInputText
+              formControlName="description" /></div>
+        </div>
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Start Date</span></div>
+          <div class="inputStyle">
+            <p-calendar [showIcon]="true" formControlName="startDateTime"></p-calendar>
+          </div>
+        </div>
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>End Date</span></div>
+          <div class="inputStyle">
+            <p-calendar [showIcon]="true" formControlName="endDateTime"></p-calendar>
+          </div>
+        </div>
+      </div>
+      </form>
+      <div *ngIf="selectedTab === 'SubmittedPapers'">
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Reviewer 1</span></div>
+          <div class="inputStyle">
+            <p-dropdown [options]="reviewers" [(ngModel)]="reviewer1" placeholder="Select Reviewer" optionLabel="reviewerName" optionalCode="reviewerId"></p-dropdown>
+          </div>
+        </div>
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Reviewer 2</span></div>
+          <div class="inputStyle">
+            <p-dropdown [options]="reviewers" [(ngModel)]="reviewer2" placeholder="Select Reviewer" optionLabel="reviewerName" optionalCode="reviewerId"></p-dropdown>
+          </div>
+        </div>
+        <div class="fieldStyle">
+          <div class="lableStyle"><span>Reviewer 3</span></div>
+          <div class="inputStyle">
+            <p-dropdown [options]="reviewers" [(ngModel)]="reviewer3" placeholder="Select Reviewer" optionLabel="reviewerName" optionalCode="reviewerId"></p-dropdown>
+          </div>
+        </div>
+      </div>
+    <div mat-dialog-actions style="padding-left: 275px; padding-top: 10px;">
+      <button mat-button mat-flat-button color="primary" type="submit" (click)="addEvent()">Submit</button>
+      <button mat-button (click)="onClickCancel()">Cancel</button>
+    </div>
+  <!-- </form> -->
+</p-dialog>

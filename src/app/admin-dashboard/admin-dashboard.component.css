@@ -1,0 +1,80 @@
+.navigation {
+    margin: 10px;
+    border-bottom: 1px solid black;
+}
+
+.signOut {
+    font-size: 2rem;
+    padding-left: 1050px;
+}
+
+.dashboard-container {
+    margin: 30px;
+}
+
+.register-button {
+    display: flex;
+}
+
+.event-button {
+    float: right;
+}
+
+.mat-raised-button {
+    background-color: white;
+    margin-top: 10px;
+    color: black;
+}
+
+.mat-raised-button:hover {
+    background-color: #0074d9;
+    color: white;
+}
+
+:host ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label {
+    color: black;
+    font-size: 1.25em;
+}
+
+:host ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label:hover {
+    background-color: white;
+}
+
+.example-card {
+    width: 250px;
+    background-color: white;
+    color: black;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+
+.example-card:hover {
+    background-color: azure;
+    border: 2px solid gray;
+}
+
+.eventsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 300px;
+}
+
+.eventDropdown {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+
+.editBarStyle {
+    padding-left: 75%;
+}
+
+#rejectedPapers {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#rejectedPapers:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}

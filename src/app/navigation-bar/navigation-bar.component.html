@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="navigation" style="display: flex;">
+    <img src="../assets/CompanyLogo.jpeg" alt="Forest" width="200" height="75" />
+    <p-avatar class="logoutStyle" icon="pi pi-user" shape="circle" size="large" (click)="op.toggle($event)"></p-avatar>
+  </div>
+</div>
+
+<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '200px'}">
+  <ng-template pTemplate>
+    <h4>{{userName}}</h4>
+    <p (click)="logOut()">Logout</p>
+  </ng-template>
+</p-overlayPanel>

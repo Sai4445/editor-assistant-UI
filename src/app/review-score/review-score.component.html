@@ -1,0 +1,24 @@
+<p-dialog header="Review Score" [(visible)]="showDialog" [modal]="true" appendTo="body"
+    [style]="{'width':'1000px', 'height':'750px'}">
+        <div>
+            <div style="display: flex; border-bottom: 1px solid black; width: 100%;">
+                <div class="commentStyle">
+                    <div class="lableStyle"><span>Comment</span></div>
+                    <div style="width: 100%;"><input style="width: 95%;" type="text" pInputText [(ngModel)]="comment" /></div>
+                </div>
+                <div class="fieldStyle">
+                    <div class="lableStyle"><span>Score</span></div>
+                    <div class="inputStyle">
+                        <p-dropdown #score [options]="scores" [(ngModel)]="selectedScore" placeholder="Select Score">
+                        </p-dropdown>
+                    </div>
+                </div>
+                <button mat-button mat-flat-button color="primary" style="width: 10%;" type="submit" (click)="submitScore()">Submit</button>
+            </div>
+
+            <div>
+                <pdf-viewer [src]="pdf" [original-size]="true" [fit-to-page]="true" [autoresize]="true"
+                    [zoom-scale]="'page-width'" style="height: 500px; width: auto;"></pdf-viewer>
+            </div>
+        </div>
+</p-dialog>

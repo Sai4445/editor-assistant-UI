@@ -1,0 +1,23 @@
+/* pdf-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px #222222);
+  }
+   */
+
+.register-button {
+  padding-top: 10px;
+  display: flex;
+}
+
+.mat-raised-button {
+  color: black;
+  background-color: white;
+  margin-top: 10px;
+}
+
+#uploadBtn:hover {
+  background-color: #0074d9;
+  color: white;
+}

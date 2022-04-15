@@ -1,0 +1,76 @@
+body {
+    background-color: white;
+}
+
+.error {
+    color: red;
+}
+
+.loginContainer {
+    display: flex;
+    margin-top: 120px;
+    margin-left: 150px;
+}
+
+.logform {
+    background-color: black;
+    width: 350px;
+    height: 510px;
+}
+
+form {
+    padding-left: 100px;
+    padding-top: 200px;
+}
+
+mat-form-field {
+    width: 200px;
+}
+
+.logform input {
+    width: 200px;
+    height: 42px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+}
+
+.loginButton button {
+    width: 200px;
+    height: 40px;
+    background: #ff656c;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.regLink {
+    color: white;
+    padding-left: 100px;
+    padding-top: 10px;
+}
+
+.regLink button {
+    padding: 0px;
+}
+
+.loginButton button:hover {
+    background: #ff7b81;
+}
+
+.fieldStyle {
+    display: block;
+}
+
+.labelStyle {
+    color: white;
+}

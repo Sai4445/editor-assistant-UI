@@ -1,0 +1,187 @@
+<p-toast position="top-center" key="tc"></p-toast>
+<div class="container">
+  <div>
+    <navigation-bar></navigation-bar>
+  </div>
+  <div class="dashboard-container">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="DashBoard">
+        <div class="event-button">
+          <button
+            mat-raised-button
+            class="event-button"
+            (click)="addNewEvent()"
+          >
+            Add Event
+          </button>
+        </div>
+        <div class="eventsContainer">
+          <div *ngFor="let event of events; let i = index">
+            <mat-card class="example-card">
+              <mat-card-title-group>
+                <mat-card-title>{{ event.eventName }}</mat-card-title>
+              </mat-card-title-group>
+              <mat-card-content>
+                <span>Description: {{ event.description }}</span
+                ><br />
+                <span
+                  >Start Date:
+                  {{ event.startDateTime | date: "dd-MM-yyyy" }}</span
+                ><br />
+                <span
+                  >End Date: {{ event.endDateTime | date: "dd-MM-yyyy" }}</span
+                ><br />
+              </mat-card-content>
+              <div class="register-button">
+                <button
+                  mat-raised-button
+                  style="margin-left: auto"
+                  (click)="onClickEdit(i, 'Events')"
+                >
+                  Edit
+                </button>
+                <button
+                  mat-raised-button
+                  style="margin-left: 5px"
+                  (click)="onClickDelete(i)"
+                >
+                  Delete
+                </button>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Submitted Paper">
+        <div>
+          <div class="eventDropdown">
+            <div class="inputStyle">
+              <p-dropdown
+                #event
+                [options]="events"
+                [(ngModel)]="selectedEventName"
+                placeholder="Select Event"
+                optionLabel="eventName"
+                optionalCode="eventName"
+                (onChange)="selectedEvent(event)"
+              ></p-dropdown>
+            </div>
+          </div>
+          <div class="eventsContainer">
+            <div *ngFor="let paper of submittedPapers; let i = index">
+              <mat-card class="example-card">
+                <mat-card-title-group>
+                  <mat-card-title>{{ paper?.event?.eventName }}</mat-card-title>
+                </mat-card-title-group>
+                <mat-card-content>
+                  <span>Description: {{ paper?.event?.description }}</span
+                  ><br />
+                  <span
+                    >Start Date:
+                    {{ paper?.event?.startDateTime | date: "dd-MM-yyyy" }}</span
+                  ><br />
+                  <span
+                    >End Date:
+                    {{ paper?.event?.endDateTime | date: "dd-MM-yyyy" }}</span
+                  ><br />
+                  <span>Author: {{ paper.authorName }}</span
+                  ><br />
+                  <span>Reviewer1: {{ paper.reviewer1Name }}</span
+                  ><br />
+                  <span>Reviewer2: {{ paper.reviewer2Name }}</span
+                  ><br />
+                  <span>Reviewer3: {{ paper.reviewer3Name }}</span
+                  ><br />
+                </mat-card-content>
+                <div class="register-button">
+                  <button
+                    mat-raised-button
+                    style="margin-left: auto"
+                    (click)="onClickEdit(i, 'SubmittedPapers')"
+                  >
+                    Assign Reviewers
+                  </button>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Published Papers">
+        <div>
+          <div style="display: flex;">
+            <div class="eventDropdown">
+              <div class="inputStyle">
+                <p-dropdown
+                  #event
+                  [options]="events"
+                  [(ngModel)]="selectedEventNamePublish"
+                  placeholder="Select Event"
+                  optionLabel="eventName"
+                  optionalCode="eventName"
+                  (onChange)="selectedEventPublish(event)"
+                ></p-dropdown>
+              </div>
+            </div>
+            <div id="rejectedPapers">
+              <span style="vertical-align: top; font-size: 1.25em; margin-right: 10px;">Rejected Papers</span>
+              <p-inputSwitch (onChange)="onChangePublished($event)" [(ngModel)]="isRejectedPapers"></p-inputSwitch>
+            </div>
+          </div>
+          <div class="eventsContainer">
+            <div *ngFor="let paper of eligiblePublishPapers; let i = index">
+              <mat-card class="example-card">
+                <mat-card-title-group>
+                  <mat-card-title>Paper 1</mat-card-title>
+                </mat-card-title-group>
+                <mat-card-content>
+                  <span>Description: {{ paper?.event?.description }}</span
+                    ><br />
+                    <span
+                      >Start Date:
+                      {{ paper?.event?.startDateTime | date: "dd-MM-yyyy" }}</span
+                    ><br />
+                    <span
+                      >End Date:
+                      {{ paper?.event?.endDateTime | date: "dd-MM-yyyy" }}</span
+                    ><br />
+                    <span>Author: {{ paper.authorName }}</span
+                    ><br />
+                    <span>Reviewer1: {{ paper.reviewer1Name }}</span
+                    ><br />
+                    <span>Reviewer2: {{ paper.reviewer2Name }}</span
+                    ><br />
+                    <span>Reviewer3: {{ paper.reviewer3Name }}</span
+                    ><br />
+                    <span>Status: {{ paper.paperStatus }}</span
+                      >
+                </mat-card-content>
+                <div class="register-button">
+                  <button
+                    mat-raised-button
+                    style="margin-left: auto"
+                    (click)="view(i)"
+                  >
+                    View
+                  </button>
+                  <button *ngIf="paper.paperStatus === 'ELIGIBLE_TO_PUBLISH'"
+                    mat-raised-button
+                    style="margin-left: 5px"
+                    (click)="publish(i)"
+                  >
+                    Publish
+                  </button>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <ng-template #addevent></ng-template>
+  <ng-template #authorFileupload></ng-template>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner> 

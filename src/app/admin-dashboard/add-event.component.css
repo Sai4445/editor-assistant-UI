@@ -1,0 +1,29 @@
+.addEventContainer input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+}
+
+.fieldStyle {
+    display: flex;
+}
+
+.lableStyle {
+    color: black;
+    width: 100px;
+}
+
+.inputStyle {
+    width: 200px;
+}
+
+.fieldStyle {
+    padding-bottom: 10px;
+}
+
+:host .p-datepicker {
+    width: 100px;
+}

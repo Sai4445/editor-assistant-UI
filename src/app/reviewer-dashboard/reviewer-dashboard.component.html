@@ -1,0 +1,45 @@
+<p-toast position="top-center" key="tc"></p-toast>
+<div class="container">
+  <div>
+    <navigation-bar></navigation-bar>
+  </div>
+  <div class="dashboard-container">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Submitted Papers">
+        <div>
+          <div class="eventDropdown">
+            <div class="inputStyle">
+              <p-dropdown #event [options]="events" [(ngModel)]="selectedEventName" placeholder="Select Event" optionLabel="eventName" optionalCode="eventName"
+              (onChange)="selectedEvent(event)"></p-dropdown>
+            </div>
+          </div>
+          <div class="eventsContainer">
+            <div *ngFor="let paper of submittedPapers; let i=index;">
+              <mat-card class="example-card">
+                <!-- <div class="editBarStyle">
+                  <i style="cursor: pointer;" class="pi pi-user-edit" (click)="onClickEdit(i)"></i>
+                </div> -->
+                <mat-card-title-group>
+                  <mat-card-title>{{paper?.event?.eventName}}</mat-card-title>
+                </mat-card-title-group>
+                <mat-card-content>
+                  <span>Description: {{paper?.event?.description}}</span><br>
+                  <span>Start Date: {{paper?.event?.startDateTime | date: 'dd-MM-yyyy'}}</span><br>
+                  <span>End Date: {{paper?.event?.endDateTime | date: 'dd-MM-yyyy'}}</span><br>
+                  <span>Author: {{paper.authorName}}</span><br>
+                </mat-card-content>
+                <div class="register-button">
+                  <button id="uploadBtn" mat-raised-button style="margin-left: auto;" (click)="onClickEdit(i)">Review</button>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <ng-template #reviewScoreUploadContainer></ng-template>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner> 

@@ -1,0 +1,57 @@
+<p-toast position="top-center" key="tc"></p-toast>
+<div class="container">
+  <div>
+    <navigation-bar></navigation-bar>
+  </div>
+  <div class="dashboard-container">
+    <mat-tab-group mat-align-tabs="start" (selectedTabChange)="onChangeTab($event)">
+      <mat-tab label="DashBoard">
+        <div class="eventsContainer">
+          <div *ngFor="let event of events; let i=index;">
+            <mat-card class="example-card">
+              <mat-card-title-group>
+                <mat-card-title>Name: {{event.eventName}}</mat-card-title>
+              </mat-card-title-group>
+              <mat-card-content>
+                <span>Description: {{event.description}}</span><br>
+                <span>Start Date: {{event.startDateTime | date:'dd-MM-yyyy'}}</span><br>
+                <span>End Date: {{event.endDateTime | date:'dd-MM-yyyy'}}</span><br>
+              </mat-card-content>
+              <div class="register-button" *ngIf="!isRegistered(i)">
+                <button id="regButton" mat-raised-button style="margin-left: auto;" (click)="registerEvent(i)">Register</button>
+              </div>
+              <div class="register-button" *ngIf="isRegistered(i)">
+                <button mat-raised-button disabled 
+                style="background-color: #0000001f; color: #00000042; cursor: default; margin-left: auto;">Registered</button>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Registered Events">
+        <div class="eventsContainer">
+          <div *ngFor="let paper of papers; let i=index;">
+            <mat-card class="example-card">
+              <mat-card-title-group>
+                <mat-card-title>{{paper?.event?.eventName}}</mat-card-title>
+              </mat-card-title-group>
+              <mat-card-content>
+                <span>Description: {{paper?.event?.eventName}}</span><br>
+                <span>Description: {{paper?.event?.description}}</span><br>
+                <span>Start Date: {{paper?.event?.startDateTime | date: 'dd-MM-yyyy'}}</span><br>
+                <span>End Date: {{paper?.event?.endDateTime | date: 'dd-MM-yyyy'}}</span><br>
+              </mat-card-content>
+              <div class="register-button">
+                <button id="uploadBtn" mat-raised-button style="margin-left: auto;" (click)="onClickEdit(i)">{{paper.paperStatus === 'CREATED' ? 'Upload' : 'View'}}</button>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <ng-template #authorFileupload></ng-template>
+</div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner> 
